@@ -8,7 +8,8 @@ import connect from './ReactMeteorData.jsx';
 
 let hasDisplayedWarning = false;
 
-export default function createContainer(options, Component) {
+export default function createContainer(options, Component, displayWarning = true) {
+  hasDisplayedWarning = !displayWarning;
   if (!hasDisplayedWarning && Meteor.isDevelopment) {
     console.warn(
       'Warning: createContainer was deprecated in react-meteor-data@0.2.13. Use withTracker instead.\n' +
